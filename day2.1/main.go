@@ -73,7 +73,7 @@ func readValue(s string) (int, error) {
 	}
 	value, err := strconv.Atoi(stringValue[1])
 	if err != nil {
-		log.Fatal(err)
+		return 0, err
 	}
 
 	return value, nil
