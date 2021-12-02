@@ -1,3 +1,6 @@
+/**
+https://adventofcode.com/2021/day/1
+*/
 package main
 
 import (
@@ -9,9 +12,6 @@ import (
 	"strings"
 )
 
-/**
-https://adventofcode.com/2021/day/1
-*/
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	var depths []int
