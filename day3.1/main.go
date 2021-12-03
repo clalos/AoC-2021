@@ -36,11 +36,11 @@ func main() {
 
 func calculateRate(input []string, pos int, withMostCommon bool) (uint64, error) {
 	if len(input) == 1 {
-		oxygenRate, err := strconv.ParseUint(input[0], 2, 64)
+		rate, err := strconv.ParseUint(input[0], 2, 64)
 		if err != nil {
 			return 0, err
 		}
-		return oxygenRate, nil
+		return rate, nil
 	}
 
 	if pos == len(input[0]) {
