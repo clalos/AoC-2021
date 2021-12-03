@@ -35,16 +35,12 @@ func main() {
 }
 
 func calculateRate(input []string, pos int, countMostCommon bool) (uint64, error) {
-	if len(input) == 1 {
+	if len(input) == 1 || pos == len(input[0]) {
 		rate, err := strconv.ParseUint(input[0], 2, 64)
 		if err != nil {
 			return 0, err
 		}
 		return rate, nil
-	}
-
-	if pos == len(input[0]) {
-		return 0, fmt.Errorf("failed to determine the output. Multiple values left in the list: %v", input)
 	}
 
 	var zeroes, ones []string
