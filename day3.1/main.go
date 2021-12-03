@@ -34,7 +34,7 @@ func main() {
 	fmt.Println(fmt.Sprintf("Life supporting rating: %d", oxygenRate*co2Rate))
 }
 
-func calculateRate(input []string, pos int, withMostCommon bool) (uint64, error) {
+func calculateRate(input []string, pos int, countMostCommon bool) (uint64, error) {
 	if len(input) == 1 {
 		rate, err := strconv.ParseUint(input[0], 2, 64)
 		if err != nil {
@@ -47,25 +47,25 @@ func calculateRate(input []string, pos int, withMostCommon bool) (uint64, error)
 		return 0, fmt.Errorf("failed to determine the output. Multiple values left in the list: %v", input)
 	}
 
-	keep := map[string][]string{}
+	var zeroes, ones []string
 	for _, line := range input {
 		if string(line[pos]) == "0" {
-			keep["0"] = append(keep["0"], line)
+			zeroes = append(zeroes, line)
 			continue
 		}
-		keep["1"] = append(keep["1"], line)
+		ones = append(ones, line)
 	}
 
 	switch {
-	case len(keep["0"]) > len(keep["1"]):
-		if withMostCommon {
-			return calculateRate(keep["0"], pos+1, true)
+	case len(zeroes) > len(ones):
+		if countMostCommon {
+			return calculateRate(zeroes, pos+1, countMostCommon)
 		}
-		return calculateRate(keep["1"], pos+1, false)
+		return calculateRate(ones, pos+1, countMostCommon)
 	default:
-		if withMostCommon {
-			return calculateRate(keep["1"], pos+1, true)
+		if countMostCommon {
+			return calculateRate(ones, pos+1, countMostCommon)
 		}
-		return calculateRate(keep["0"], pos+1, false)
+		return calculateRate(zeroes, pos+1, countMostCommon)
 	}
 }
