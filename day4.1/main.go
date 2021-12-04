@@ -150,6 +150,8 @@ func (b *board) isWinning(winningNumbers []int) bool {
 	return false
 }
 
+// getScore calculates the score.
+// Sum of the losing numbers multiplied the last drawn number.
 func (b *board) getScore(winningNumbers []int) int {
 	// Get losing squares.
 	var unmarkedSquare []square
