@@ -21,7 +21,7 @@ type segment struct {
 	endY   int
 }
 
-// isDiagonal returns true if the segment is at 45 degrees.
+// is45Degree returns true if the segment is at 45 degrees.
 func (s *segment) is45Degree() bool {
 	xLength := s.startX - s.endX
 	yLength := s.startY - s.endY
@@ -159,7 +159,7 @@ func countOverlaps(diagram [][]int) int {
 	return overlaps
 }
 
-// initDiagram initialise a matrix with all zeros.
+// initDiagram initialises a matrix with all zeros.
 func initDiagram() [][]int {
 	diagram := make([][]int, 1000)
 	for i := range diagram {
