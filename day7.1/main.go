@@ -28,7 +28,8 @@ func main() {
 	for curValue := minValue; curValue <= maxValue; curValue++ {
 		for i := 0; i < len(positions); i++ {
 			steps := int(math.Abs(float64(curValue - positions[i])))
-			fuelCosts[curValue] += triangleNumber(steps)
+			// Triangular number of the steps.
+			fuelCosts[curValue] += (steps*steps + steps) / 2
 		}
 	}
 
@@ -58,12 +59,4 @@ func loadValues() ([]int, error) {
 		output = append(output, intValue)
 	}
 	return output, nil
-}
-
-// triangleNumber calculates the triangle number of the given value.
-func triangleNumber(n int) int {
-	if n == 0 {
-		return 0
-	}
-	return n + triangleNumber(n-1)
 }
