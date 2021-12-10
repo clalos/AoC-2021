@@ -1,3 +1,6 @@
+/**
+https://adventofcode.com/2021/day/10
+*/
 package main
 
 import (
