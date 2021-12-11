@@ -33,7 +33,7 @@ func main() {
 			}
 		}
 		if flashes == 100 {
-			fmt.Println(fmt.Sprintf("All fllash at step: %d", step+1))
+			fmt.Println(fmt.Sprintf("All flash at step: %d", step+1))
 			return
 		}
 		reset(grid)
