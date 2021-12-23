@@ -96,7 +96,7 @@ func playGame(g *game) *result {
 	}
 
 	// Run the game for all possible dice sums.
-	// The result is multiplied  by the time that sum occurs.
+	// The result is multiplied by the time that sum occurs.
 	// For example: the sum 4 occurs with 3 combinations: 112,121,211
 	return  playGame(g.playTurn(3)).
 		add(playGame(g.playTurn(4)).times(3)).
